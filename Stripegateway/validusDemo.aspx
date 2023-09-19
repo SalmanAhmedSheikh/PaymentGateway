@@ -1,7 +1,7 @@
 ﻿<%--<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="Stripegateway.About" %>--%>
 <%--<%@ Register Src="~/PaymentControl.ascx" TagName="PaymentControl" TagPrefix="uc" %>--%>
 
-<%@ Page Title="About" Language="C#" AutoEventWireup="true" CodeBehind="validusDemo.aspx.cs" Inherits="Stripegateway.About" %>
+<%@ Page Title="About" Language="C#" AutoEventWireup="true" Async="true" CodeBehind="validusDemo.aspx.cs" Inherits="Stripegateway.About" %>
 
 <%@ Register Src="~/PaymentControl.ascx" TagName="PaymentControl" TagPrefix="uc" %>
 
