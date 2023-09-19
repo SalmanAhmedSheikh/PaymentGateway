@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PaymentControl.ascx.cs" Inherits="YourNamespace.PaymentControl" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PaymentControl.ascx.cs" Inherits="YourNamespace.PaymentControl"  %>
 
 <style>
     /* Custom CSS for an Amazon-like indigo theme */
@@ -134,9 +134,11 @@
 
         <%--<div class="form-group">--%>
 
-            <%--<asp:Button ID="btnSubmit"  runat="server" Text="Checkout" CssClass="btn btn-primary" Enabled="false" OnClick="btnSubmit_Click" />--%>
+            <%--<asp:Button ID="btnTest"  runat="server" Text="Checkout" CssClass="btn btn-primary" OnClick="btnTest_Click"  />--%>
 
-            <input type="image" src="images/Stripe.png" ID="btnSubmit"    alt="Pay by Card" style="width:200px;height:60px;margin-top:14px; display: none;">
+    <asp:ImageButton ID="btnSubmit" runat="server" style="width:200px;height:70px;margin-top:14px;margin-left:20px;display: none;" ImageUrl="~/images/myFatoorah.png" OnClick="btnTest_Click" />
+
+           <%-- <input type="image" src="images/Stripe.png" ID="btnSubmit"    alt="Pay by Card" style="width:200px;height:60px;margin-top:14px; display: none;">--%>
 
             <%--</div>--%>
 </form>
@@ -145,13 +147,6 @@
 	<input type="hidden" name="cmd" value="_pay">
 	<input type="hidden" name="reset" value="1">
 	<input type="hidden" name="want_shipping" value="0">
-	<%--<input type="hidden" name="merchant" value="4c17918a8bb7838b10a2de63524aaa71">--%>
-            <%--Ahad--%>
-            	
-<%--            <input type="hidden" name="merchant" value="94d2e59ffbc132b933d80f716aa7e83b">--%>
-            <%--Salman Account--%>
-
-            <%--demo Merchant--%>
 	<input type="hidden" name="merchant" value="4c4943b7aad5069c9626479e847c3b0e">
 
             
@@ -186,7 +181,11 @@
 
        //To Enable Payment Via Card button
        var cardRadioButton = document.querySelector('input[value="card"]');
-       var Input = document.getElementById('btnSubmit');
+       var buttonID = '<%= btnSubmit.ClientID %>';
+
+       // Get a reference to the ImageButton control using its ClientID
+       var Input = document.getElementById(buttonID);
+      // var Input = document.getElementById('btnSubmit');
 
        cardRadioButton.addEventListener('change', function () {
            if (cardRadioButton.checked) {
@@ -207,7 +206,7 @@
 
 
 <script src="https://js.stripe.com/v3/"></script>
-<script>
+<%--<script>
     var publicKey = 'pk_test_51Nlv9PIRv7OhiATt4w9Ztl56zlcN80tVD8bWW6IhsLrd1rH0SBuBmLRMvsupZsFAZ7uduSCPwaOJWvK1VfNEhtH100ZiofyEEZ';
 
     var stripe = Stripe(publicKey);
@@ -219,4 +218,4 @@
             sessionId: "<%= sessionId %>"
         });
     });
-</script>
+</script>--%>
